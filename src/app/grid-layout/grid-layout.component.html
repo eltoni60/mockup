@@ -1,1 +1,26 @@
-<app-food-buttons></app-food-buttons>
+<mat-tab-group dynamicHeight="true">
+  <mat-tab label={{links[0]}}>
+    <ng-template matTabContent>
+      <button mat-button *ngFor="let entree of foodItem[0]" (click)="addEntree(entree)">{{entree.item}}</button>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab label={{links[1]}}>
+    <ng-template matTabContent>
+      <button mat-button *ngFor="let entree of foodItem[1]" (click)="addEntree(entree)">{{entree.item}}</button>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab label={{links[2]}}>
+    <ng-template matTabContent>
+      <button mat-button *ngFor="let entree of foodItem[2]" (click)="addEntree(entree)">{{entree.item}}</button>
+
+    </ng-template>
+  </mat-tab>
+</mat-tab-group>
+
+
+
+
+
+

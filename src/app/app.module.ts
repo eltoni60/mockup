@@ -12,6 +12,8 @@ import {GridLayoutComponent} from './grid-layout/grid-layout.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {ReceiptListComponent} from './receipt-list/receipt-list.component';
 import {MatTableModule} from '@angular/material/table';
+import {MatTabsModule} from '@angular/material/tabs';
+
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import {MatTableModule} from '@angular/material/table';
     MatIconModule,
     MatListModule,
     MatGridListModule,
-    MatTableModule
+    MatTableModule,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,8 @@
 import {Component} from '@angular/core';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
+import {MatButtonModule} from '@angular/material/button';
+import {ITEM} from '../menu-item';
+import {items} from '../mock-entrees';
 
 @Component({
   selector: 'app-food-buttons',
@@ -7,14 +10,15 @@ import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag
   styleUrls: ['./food-buttons.component.css'],
 })
 export class FoodButtonsComponent {
-  uielements = [
-    'Burger w/ Fries',
-    'Pancakes',
-    'Chicken',
-    'Soft Drink'
+  static uielements: string[][] = [
+    ['Pancakes', 'Waffle', 'B&E', 'Veggie Omelet'],
+    ['Burgers', 'Cold Cut Sandwich', 'Soup', 'pizza'],
+    ['T-Bone Dinner']
   ];
+  orderItems: ITEM[][] = items;
 
   uicanvas = [];
+
 
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {

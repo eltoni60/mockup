@@ -1,21 +1,63 @@
-<div class="example-container mat-elevation-z8">
-  <table mat-table [dataSource]="order">
-    <!-- Item Column -->
-    <ng-container matColumnDef="item" >
+<!--<div class="example-container mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource">
+    &lt;!&ndash; Item Column &ndash;&gt;
+    <ng-container matColumnDef="item">
       <th mat-header-cell *matHeaderCellDef> Item </th>
-      <td mat-cell *matCellDef="let order"> {{order.item}} </td>
+      <td mat-cell *matCellDef="let transaction"> {{transaction.item}} </td>
       <td mat-footer-cell *matFooterCellDef> Total </td>
     </ng-container>
 
-    <!-- Cost Column -->
+    &lt;!&ndash; Cost Column &ndash;&gt;
     <ng-container matColumnDef="cost">
       <th mat-header-cell *matHeaderCellDef> Cost </th>
-      <td mat-cell *matCellDef="let order"> {{order.cost | currency}} </td>
+      <td mat-cell *matCellDef="let transaction"> {{transaction.cost | currency}} </td>
       <td mat-footer-cell *matFooterCellDef> {{getTotalCost() | currency}} </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     <tr mat-footer-row *matFooterRowDef="displayedColumns; sticky: true"></tr>
+  </table>
+</div>-->
+
+
+<div class="example-container mat-elevation-z8">
+  <table>
+    <thead>
+    <tr>
+      <th>Item</th>
+      <th>Cost</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let entree of orders">
+      <td>{{entree.item}}</td>
+      <td>{{entree.cost}}</td>
+      <td>
+        <button mat-raised-button (click)="deleteChecked(entree)">Delete</button>
+      </td>
+    </tr>
+    </tbody>
+
+  </table>
+</div>
+<div>
+  <table>
+    <tfoot>
+    <tr>
+      <td>Total:</td>
+      <td>{{getTotalCost() | currency}}</td>
+    </tr>
+    <tr>
+      <td>
+        <button mat-raised-button (click)="clearOrder()">Clear</button>
+      </td>
+      <td>
+        <button mat-raised-button type="button" (click)="printOrder()">Print</button>
+      </td>
+    </tr>
+
+    </tfoot>
   </table>
 </div>
